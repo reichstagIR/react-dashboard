@@ -1,10 +1,18 @@
 module.exports = {
     content: ['./src/**/*.{js,jsx,ts,tsx}'],
+    important: true,
     darkMode: 'class',
     theme: {
         fontFamily: {
             display: ['Open Sans', 'sans-serif'],
             body: ['Open Sans', 'sans-serif'],
+        },
+        screens: {
+            sm: '480px',
+            md: '768px',
+            lg: '976px',
+            xl: '1400px',
+            '2xl' : '1536px',
         },
         extend: {
             fontSize: {
@@ -37,10 +45,6 @@ module.exports = {
             },
             minHeight: {
                 590: '590px',
-            },
-            backgroundImage: {
-                'hero-pattern':
-                    "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
             },
         },
     },

@@ -1,4 +1,4 @@
-import React , {useContext , useEffect , useState} from 'react';
+import React , {useContext , useEffect} from 'react';
 //Icons
 import { SiShopware } from 'react-icons/si';
 import { MdOutlineCancel } from 'react-icons/md';
@@ -12,17 +12,17 @@ import {ContextState} from "../Context/ContextProvider";
 
 const SideBar = () => {
 
-    const {dispatch} = useContext(ContextState);
+    const {state , dispatch} = useContext(ContextState);
 
     useEffect(() => {
         const windowSize = window.innerWidth;
-        if(windowSize <= 700){
+        if(windowSize <= 1400){
             dispatch("TOGGLE-MENU");
         }
-    } , []);
+    } , [dispatch]);
 
 
-    const activeLink = 'flex items-center gap-3 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2';
+    const activeLink = 'flex items-center gap-3 pl-4 pt-3 pb-2.5 text-white rounded-lg text-md m-2';
     const normalLink = 'flex items-center gap-3 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
 
     return (
@@ -33,7 +33,7 @@ const SideBar = () => {
                     <span>Dashboard</span>
                 </div>
                 <TooltipComponent content="Menu" Postion="BottomCenter">
-                    <button className="text-xl rounded-full p-3 hover:bg-light-gray md:hidden" style={{color : "#4287f5"}} onClick={() => dispatch("TOGGLE-MENU")}>
+                    <button className="text-xl rounded-full p-3 hover:bg-light-gray lg:hidden" style={{color : "#4287f5"}} onClick={(event) => {dispatch({type : "TOGGLE-MENU"});event.preventDefault()}}>
                         <MdOutlineCancel />
                     </button>
                 </TooltipComponent>
@@ -43,7 +43,7 @@ const SideBar = () => {
                     <div key={link.title}>
                         <p className="text-gray-400 dark:text-gray-400 uppercase mb-3">{link.title}</p>
                         {link.links.map(items => (
-                            <NavLink key={items.name} to={`/${items.name}`} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+                            <NavLink key={items.name} to={`/${items.link}`} className={({ isActive }) => (isActive ? activeLink : normalLink)} style={({ isActive }) => isActive ? {backgroundColor: state.colorTheme} : {}}>
                                 {items.icon}
                                 <span>{items.name}</span>
                             </NavLink>

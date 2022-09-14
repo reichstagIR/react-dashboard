@@ -27,20 +27,20 @@ const ToolTipCreator = ({content , Position , icon , color , dotColor , customFu
 
 const Navbar = () => {
 
-    const {dispatch} = useContext(ContextState);
+    const {state , dispatch} = useContext(ContextState);
 
     return (
         <div className="flex justify-between items-center mx-3">
-            <ToolTipCreator content="Menu" Position="BottomCenter" color="#4287f5"  icon={<AiOutlineMenu/>} customFun={() => dispatch("TOGGLE-MENU")}/>
+            <ToolTipCreator content="Menu" Position="BottomCenter" color={state.colorTheme}  icon={<AiOutlineMenu/>} customFun={() => dispatch({type : "TOGGLE-MENU"})}/>
             <div className="flex items-center justify-between gap-5">
-                <ToolTipCreator content="Cart" Position="BottomCenter" color="#4287f5"  icon={<FiShoppingCart/>} customFun={() => {}}/>
-                <ToolTipCreator content="Chat" Position="BottomCenter" color="#4287f5" dotColor="#03C9D7"  icon={<BsChatLeft/>} customFun={() => {}}/>
-                <ToolTipCreator content="Notification" Position="BottomCenter" color="#4287f5" dotColor="#fec90f"  icon={<RiNotification3Line/>} customFun={() => {}}/>
+                <ToolTipCreator content="Cart" Position="BottomCenter" color={state.colorTheme}  icon={<FiShoppingCart/>} customFun={() => {}}/>
+                <ToolTipCreator content="Chat" Position="BottomCenter" color={state.colorTheme} dotColor="#03C9D7"  icon={<BsChatLeft/>} customFun={() => {}}/>
+                <ToolTipCreator content="Notification" Position="BottomCenter" color={state.colorTheme} dotColor="#fec90f"  icon={<RiNotification3Line/>} customFun={() => {}}/>
                 <TooltipComponent content="User Profile" Position="BottomCenter">
                     <button type="button" className="p-1 hover:bg-light-gray rounded-xl flex justify-between items-center gap-2">
                         <img className="w-8 h-8 rounded-full" src={userProfileImg} alt="profile-img" />
-                        <span className="text-gray-400 text-14">Hi ,<span className="font-bold"> Mikel</span></span>
-                        <MdKeyboardArrowDown className="text-gray-400"/>
+                        <span className={`text-14`} style={{color : state.colorTheme}}>Hi ,<span className="font-bold" style={{color : state.colorTheme}}> Mikel</span></span>
+                        <MdKeyboardArrowDown style={{color : state.colorTheme}}/>
                     </button>
                 </TooltipComponent>
             </div>

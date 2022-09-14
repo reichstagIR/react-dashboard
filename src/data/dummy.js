@@ -1,14 +1,13 @@
 import React from 'react';
-import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
-import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
-import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
+import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineStock } from 'react-icons/ai';
+import { FiShoppingBag, FiEdit, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
+import { BsKanban, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
-import { RiContactsLine, RiStockLine } from 'react-icons/ri';
+import { RiContactsLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
-import { GiLouvrePyramid } from 'react-icons/gi';
 import { GrLocation } from 'react-icons/gr';
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
@@ -21,7 +20,6 @@ import product4 from './product4.jpg';
 import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
-import product8 from './product8.jpg';
 
 export const gridOrderImage = (props) => (
     <div>
@@ -474,6 +472,7 @@ export const links = [
     title: 'Dashboard',
     links: [
       {
+        link: "",
         name: 'ecommerce',
         icon: <FiShoppingBag />,
       },
@@ -484,14 +483,17 @@ export const links = [
     title: 'Pages',
     links: [
       {
+        link: "orders",
         name: 'orders',
         icon: <AiOutlineShoppingCart />,
       },
       {
+        link: "employees",
         name: 'employees',
         icon: <IoMdContacts />,
       },
       {
+        link: "customers",
         name: 'customers',
         icon: <RiContactsLine />,
       },
@@ -501,18 +503,22 @@ export const links = [
     title: 'Apps',
     links: [
       {
+        link: "calendar",
         name: 'calendar',
         icon: <AiOutlineCalendar />,
       },
       {
+        link: "kanban",
         name: 'kanban',
         icon: <BsKanban />,
       },
       {
+        link: "editor",
         name: 'editor',
         icon: <FiEdit />,
       },
       {
+        link: "color-picker",
         name: 'color-picker',
         icon: <BiColorFill />,
       },
@@ -522,37 +528,9 @@ export const links = [
     title: 'Charts',
     links: [
       {
+        link: "line",
         name: 'line',
         icon: <AiOutlineStock />,
-      },
-      {
-        name: 'area',
-        icon: <AiOutlineAreaChart />,
-      },
-
-      {
-        name: 'bar',
-        icon: <AiOutlineBarChart />,
-      },
-      {
-        name: 'pie',
-        icon: <FiPieChart />,
-      },
-      {
-        name: 'financial',
-        icon: <RiStockLine />,
-      },
-      {
-        name: 'color-mapping',
-        icon: <BsBarChart />,
-      },
-      {
-        name: 'pyramid',
-        icon: <GiLouvrePyramid />,
-      },
-      {
-        name: 'stacked',
-        icon: <AiOutlineBarChart />,
       },
     ],
   },
@@ -942,7 +920,6 @@ export const customersData = [
     Status: 'Active',
     CustomerImage:
     avatar3,
-
     StatusBg: '#8BE78B',
     Weeks: '11',
     Budget: '$3.9k',
